@@ -1,3 +1,5 @@
+$closescolor:rgb(58,81,137);
+$skincolor:rgb(224,176,43);
 .minions{
   width:110px;
   display:block;
@@ -53,7 +55,7 @@
       position:relative;
       width:110px;
       height:170px;
-      background-color: rgb(224,176,43);
+      background-color: $skincolor;
       border-radius: 40px;
 
       @at-root {
@@ -209,7 +211,7 @@
             width:26px;
             height:8px;
             margin-left:-2px;
-            background-color: rgb(58,81,137);
+            background-color: $closescolor;
             transform:rotate(30deg);
             border-top-left-radius: 30%;
             border-bottom-left-radius: 30%;
@@ -217,7 +219,7 @@
           .closes-body{
             width:70px;
             height:40px;
-            background-color: rgb(58,81,137);
+            background-color: $closescolor;
             margin-left: 20px;
 
             .left-button{
@@ -256,7 +258,7 @@
           .right-belt{
             width:26px;
             height:8px;
-            background-color: rgb(58,81,137);
+            background-color: $closescolor;
             transform:rotate(150deg);
             border-top-left-radius: 30%;
             border-bottom-left-radius: 30%;
@@ -266,7 +268,7 @@
           }
           .closes-bottom{
             width:100%;
-            background-color: rgb(58,81,137);
+            background-color: $closescolor;
             height:27px;
             margin-top: -1px;
             border-bottom-right-radius: 40px;
@@ -281,7 +283,7 @@
       .left-arm{
         width:10px;
         height:50px;
-        background-color: rgb(224,176,43);
+        background-color: $skincolor;
         border-top-left-radius: 70%;
         border-bottom-left-radius: 20%;
         border-bottom-right-radius: 20%;
@@ -332,11 +334,11 @@
 
     .right{
       margin-left: 114px;
-      margin-top: -78px;
+      margin-top: -80px;
       .right-arm{
         width:10px;
         height:50px;
-        background-color: rgb(224,176,43);
+        background-color: $skincolor;
         border-bottom-left-radius: 70%;
         border-top-left-radius: 20%;
         border-top-right-radius: 20%;
@@ -383,7 +385,40 @@
         }
       }
     }
-
+    .left-leg{
+      width:16px;
+      margin-top:-8px;
+      margin-left:22px;
+      border-top:20px solid $closescolor;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+    .left-foot{
+      width:18px;
+      height:12px;
+      background-color: rgb(22,17,40);
+      margin-left:27px;
+      border-bottom-left-radius: 40%;
+      border-bottom-right-radius: 50%;
+      transform: skew(150deg);
+    }
+    .right-leg{
+      width:16px;
+      margin-top:-32px;
+      margin-left:58px;
+      border-top:20px solid $closescolor;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+    .right-foot{
+      width:18px;
+      height:12px;
+      background-color: rgb(22,17,40);
+      margin-left:70px;
+      border-bottom-left-radius: 40%;
+      border-bottom-right-radius: 50%;
+      transform: skew(30deg);
+    }
   }
 
 
