@@ -1,0 +1,51 @@
+.minions {
+  width: 110px;
+  display: block;
+  margin: 230px auto; }
+  .hairs {
+    position: relative; }
+    .hairs .hair1 {
+      width: 46px;
+      height: 20px;
+      border-top: 2px solid black;
+      border-top-right-radius: 26%;
+      border-top-left-radius: 60%;
+      position: absolute;
+      left: 8px;
+      bottom: -18px; }
+    .hairs .hair2 {
+      width: 50px;
+      height: 30px;
+      border-top: 2px solid black;
+      border-top-right-radius: 26%;
+      border-top-left-radius: 50%;
+      position: absolute;
+      left: 5px;
+      bottom: -26px; }
+    .hairs .hair3 {
+      width: 50px;
+      height: 30px;
+      border-top: 2px solid black;
+      border-top-left-radius: 26%;
+      border-top-right-radius: 50%;
+      position: absolute;
+      right: 8px;
+      bottom: -26px; }
+    .hairs .hair4 {
+      width: 46px;
+      height: 20px;
+      border-top: 2px solid black;
+      border-top-left-radius: 26%;
+      border-top-right-radius: 60%;
+      position: absolute;
+      right: 10px;
+      bottom: -18px; }
+
+  .body {
+    position: relative;
+    width: 110px;
+    height: 170px;
+    background-color: #e0b02b;
+    border-radius: 40px; }
+
+/*# sourceMappingURL=index.css.map */
