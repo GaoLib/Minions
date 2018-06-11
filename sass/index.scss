@@ -1,5 +1,52 @@
 $closescolor:rgb(58,81,137);
 $skincolor:rgb(224,176,43);
+@mixin rotate($value) {
+  transform:rotate($value);
+  -ms-transform:rotate($value); 	/* IE 9 */
+  -moz-transform:rotate($value); 	/* Firefox */
+  -webkit-transform:rotate($value); /* Safari 和 Chrome */
+  -o-transform:rotate($value);
+}
+@mixin skew($value){
+  transform:skew($value);
+  -ms-transform:skew($value); 	/* IE 9 */
+  -moz-transform:skew($value); 	/* Firefox */
+  -webkit-transform:skew($value); /* Safari 和 Chrome */
+  -o-transform:skew($value);
+}
+@keyframes foot {
+  from {@include skew(15deg);margin-left: 68px}
+  to {@include skew(30deg);margin-left: 74px;}
+}
+@keyframes leg {
+  from {border-left: 10px solid transparent;
+    border-right: 10px solid transparent;}
+  to {@include skew(15deg);border-left: 12px solid transparent;
+    border-right: 8px solid transparent;}
+}
+@keyframes arm {
+  from { transform: rotate(355deg);transform-origin: top;}
+  to {transform: rotate(214deg); transform-origin: top;border-bottom-left-radius: 70%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    margin-left: 66px;
+    }
+}
+@keyframes hand {
+  from { transform: rotate(8deg);
+  }
+  to {transform: rotate(-12deg);
+  }
+}
+@keyframes finger1 {
+  from {@include rotate(10deg);}
+  to {@include rotate(30deg);}
+}
+@keyframes finger3 {
+  from {@include rotate(179deg);}
+  to {@include rotate(170deg);}
+}
+
 .minions{
   width:110px;
   display:block;
@@ -212,7 +259,7 @@ $skincolor:rgb(224,176,43);
             height:8px;
             margin-left:-2px;
             background-color: $closescolor;
-            transform:rotate(30deg);
+            @include rotate(30deg);
             border-top-left-radius: 30%;
             border-bottom-left-radius: 30%;
           }
@@ -259,7 +306,7 @@ $skincolor:rgb(224,176,43);
             width:26px;
             height:8px;
             background-color: $closescolor;
-            transform:rotate(150deg);
+            @include rotate(150deg);
             border-top-left-radius: 30%;
             border-bottom-left-radius: 30%;
             float:right;
@@ -287,7 +334,7 @@ $skincolor:rgb(224,176,43);
         border-top-left-radius: 70%;
         border-bottom-left-radius: 20%;
         border-bottom-right-radius: 20%;
-        transform: rotate(10deg);
+        @include rotate(10deg);
       }
       .left-hand{
         .left-hand-bottom{
@@ -295,6 +342,7 @@ $skincolor:rgb(224,176,43);
           height:6px;
           background-color: rgb(22,17,40);
           margin-left:-6px;
+          margin-top: -2px;
           border-radius: 10%;
         }
         .left-finger1{
@@ -305,7 +353,7 @@ $skincolor:rgb(224,176,43);
           border-bottom-left-radius: 60%;
           border-bottom-right-radius: 10%;
           border-top-left-radius: 30%;
-          transform: rotate(10deg);
+          @include rotate(10deg);
         }
         .left-finger2{
           width:8px;
@@ -316,7 +364,7 @@ $skincolor:rgb(224,176,43);
           border-bottom-left-radius: 40%;
           border-bottom-right-radius: 10%;
           border-top-left-radius: 30%;
-          transform: rotate(2deg);
+          @include rotate(2deg);
         }
         .left-finger3{
           width:8px;
@@ -327,27 +375,32 @@ $skincolor:rgb(224,176,43);
           border-top-left-radius: 40%;
           border-top-right-radius: 10%;
           border-bottom-left-radius: 30%;
-          transform: rotate(179deg);
+          @include rotate(179deg);
         }
       }
     }
 
     .right{
-      margin-left: 114px;
+      margin-left: 110px;
       margin-top: -80px;
+      animation: arm 5s cubic-bezier(0,0,0.05,1) 10;
       .right-arm{
         width:10px;
         height:50px;
         background-color: $skincolor;
-        border-bottom-left-radius: 70%;
-        border-top-left-radius: 20%;
-        border-top-right-radius: 20%;
-        transform: rotate(170deg);
+        border-top-right-radius: 70%;
+        border-bottom-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        @include rotate(350deg);
+        transform-origin: top;
       }
       .right-hand{
+        margin-left: 6px;
+        animation: hand 1s infinite alternate;
         .right-hand-bottom{
           width:16px;
           height:6px;
+          margin-top:-2px;
           background-color: rgb(22,17,40);
           border-radius: 10%;
         }
@@ -359,7 +412,8 @@ $skincolor:rgb(224,176,43);
           border-bottom-left-radius: 60%;
           border-bottom-right-radius: 10%;
           border-top-left-radius: 30%;
-          transform: rotate(10deg);
+          @include rotate(10deg);
+          animation:finger1 2s infinite;
         }
         .right-finger2{
           width:8px;
@@ -370,7 +424,7 @@ $skincolor:rgb(224,176,43);
           border-bottom-left-radius: 40%;
           border-bottom-right-radius: 10%;
           border-top-left-radius: 30%;
-          transform: rotate(2deg);
+          @include rotate(2deg);
         }
         .right-finger3{
           width:8px;
@@ -381,13 +435,14 @@ $skincolor:rgb(224,176,43);
           border-top-left-radius: 40%;
           border-top-right-radius: 10%;
           border-bottom-left-radius: 30%;
-          transform: rotate(179deg);
+          @include rotate(179deg);
+          animation:finger3 2s infinite;
         }
       }
     }
     .left-leg{
       width:16px;
-      margin-top:-8px;
+      margin-top:-4px;
       margin-left:22px;
       border-top:20px solid $closescolor;
       border-left: 10px solid transparent;
@@ -400,24 +455,25 @@ $skincolor:rgb(224,176,43);
       margin-left:27px;
       border-bottom-left-radius: 40%;
       border-bottom-right-radius: 50%;
-      transform: skew(150deg);
+      @include skew(150deg);
     }
     .right-leg{
       width:16px;
-      margin-top:-32px;
+      margin-top:-30px;
       margin-left:58px;
       border-top:20px solid $closescolor;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
+      animation:leg 5s ease-out infinite;
     }
     .right-foot{
       width:18px;
       height:12px;
       background-color: rgb(22,17,40);
-      margin-left:70px;
+      margin-left:68px;
       border-bottom-left-radius: 40%;
       border-bottom-right-radius: 50%;
-      transform: skew(30deg);
+      animation:foot 5s ease-out infinite;
     }
   }
 
